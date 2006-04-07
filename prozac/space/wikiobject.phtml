@@ -1,0 +1,52 @@
+	<%@ include file="top.phtml" %>
+        <title><%syspref var="site.name" %> :: <%$title %></title>
+        <%$heads %>
+        <%@ include file="header.phtml" %>
+	<%@ include file="pagebegin.phtml" %>
+<!-- we need to provide a header for wiki content. -->
+        <%@ include file="space/trackback.phtml" %>
+
+      <% if data["object_is_weblog"] %>
+      <% else %>
+   <h3><%$title %></h3>
+   Created by <%$author_username %>. Last updated by <%$editor_username %>,
+<%$when%>. Version #<%$version%>.
+<p>
+     <% endif %>
+<!--
+<% if data["user_object"]  %>
+<div style="float: right;">
+[ <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
+xonmouseout="menuLayers.hide()">actions</a> ]
+</div>
+<% endif %>
+--> 
+<div class="flash-message"><% flash var="msg" %></div>
+  <%$content%>
+<p>
+
+<% if data["object_is_weblog"] %>
+<% else %>
+<% if sizeof(data->object["categories"]) %> Posted in <% implode var="object.category_links" final=" and " %>
+<strong>|</strong> <%endif %>
+         <% if data["numcomments"] %>
+                 <a href="#" onclick="displayComments('wiper', '<%$obj%>')"><%$numcomments %> comments</a>
+            <% else %>
+                 No comments
+            <% endif %>
+ <strong>|</strong> <a href="#" onclick="openPopup('/exec/comments/<%$obj%>', '80%'); return false;">Post
+a Comment</a> <strong>|</strong> <a href="/rss/<%$obj%>?type=comments">RSS Feed</a>
+  <% if data["metadata"]["trackbacks"] %> <strong>|</strong> <a href="#"
+onclick="openPopup('/exec/display_trackbacks/<%$obj%>', '80%'); return false;"><%sizeof var="metadata.trackbacks"%> TrackBacks</a> <% endif %>
+  <% if data["metadata"]["pingbacks"] %> <strong>|</strong> <a href="#"
+onclick="openPopup('/exec/display_pingbacks/<%$obj%>', '80%'); return false;"><%sizeof var="metadata.pingbacks"%>
+PingBacks</a> <% endif %>
+         <p/>
+<div id="wiper" style="display:none;"></div>
+<% endif %>
+
+</div>
+
+<%@include file="footer.phtml" %>
+<%@include file="bottom.phtml" %>
+
