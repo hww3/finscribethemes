@@ -1,0 +1,33 @@
+</head>
+<body>
+<div id="actions" class="menu"><div id="closebutton" class="closebutton"><a onclick="menuLayers.hide()">Close</a></div>
+<div id="actions_contents" class="action_contents"></div>
+</div>
+
+<div class="wrap clearfix">
+  <div class="header"><strong><%syspref var="site.name" %></strong><br/><em><%syspref var="site.tagline" %></em></div>
+  <div class="topnav" id="nav">
+    <ul>
+      <%@include file="tagline.phtml" %>
+    </ul>
+  </div>
+
+<div class="container clearfix">
+<div class="news_right clearfix rounded" id="news">
+<div style="margin: 5px;">
+<!--
+<div class="rounded news_right clearfix" id="news">
+<div class="news_cnr_top"><img src="<% theme show="path"%>images/cnr_tl.gif" alt="corner" width="8" height="8" class="cnr" style="display: none" /></div>
+-->
+ <% snip snip="themes/default/portlet-1" %>
+
+<!--
+<div class="news_cnr_bottom"><img src="<% theme show="path"%>/images/cnr_bl.gif" alt="corner" width="8" height="8" 
+class="cnr" style="display: none" /></div>
+-->
+</div>
+</div>
+
+<script type="text/javascript">
+make_corners();
+</script>
