@@ -1,0 +1,51 @@
+	<%@ include file="top.phtml" %>
+        <title><%syspref var="site.name" %> :: <%$title %></title>
+        <%$heads %>
+        <%@ include file="header.phtml" %>
+	<%@ include file="pagebegin.phtml" %>
+<!-- we need to provide a header for wiki content. -->
+        <%@ include file="space/trackback.phtml" %>
+
+      <% if data["object_is_weblog"] %>
+      <% else %>
+
+                        <h2 class="posttitle"><a href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">
+                                 <%$object.title%></a></h2>
+
+<p class="postmeta"><%$object.nice_created%> &#183; <% if sizeof(data->object["categories"]) %> Filed under <% implode var="object.category_links" final=" and "%><%endif%>
+<%if data["user_object"] %>
+&#183;  <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
+xonmouseout="menuLayers.hide()">actions</a>
+<% endif %>
+</p>
+
+     <% endif %>
+<div class="flash-message"><% flash var="msg" %></div>
+  <%$content%>
+<p>
+
+<% if data["object_is_weblog"] %>
+<% else %>
+
+
+
+                        <p class="postfeedback">
+<a class="permalink" href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">Permalink</a>
+<a class="commentslink" onclick="displayComments('wiper', '<%$object.path%>'); return false;">Display Comments (<%sizeof var="object.comments" %>) </a> 
+/ <a href="/exec/comments/<%$object.path%>">Post Comment</a>
+</p>
+<div id="wiper" style="display:none;"></div>
+<% endif %>
+
+<%@include file="footer.phtml" %>
+<%@include file="bottom.phtml" %>
+
+
+
+
+
+
+
+
+
+
