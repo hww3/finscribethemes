@@ -1,0 +1,17 @@
+<div class="post" id="post-<%$entry.id%>">
+                        <h2 class="posttitle"><a href="/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">
+                                 <%$subject%></a></h2>
+<p class="postmeta"><%$entry.nice_created%> &#183; <% if sizeof(data->entry["categories"]) %> Filed under <% implode var="entry.category_links" final=" and " 
+%><%endif%></p>
+
+                        <div class="postentry">
+                                <%$contents%>
+                        </div>
+
+                        <p class="postfeedback">
+<a class="permalink" href="/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">Permalink</a>
+<a class="commentslink" onclick="displayComments('wiper<%$entry.id%>', '<%$entry.path%>'); return false;">Display Comments (<%sizeof 
+var="entry.comments" %>) </a> / <a href="/exec/comments/<%$entry.path%>">Post Comment</a>
+</p>
+</div>
+<div id="wiper<%$entry.id%>" style="display:none; padding-left:20px;"></div>
