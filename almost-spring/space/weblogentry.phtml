@@ -1,7 +1,7 @@
 <div class="post" id="post-<%$entry.id%>">
                         <h2 class="posttitle"><a href="/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">
                                  <%$subject%></a></h2>
-<p class="postmeta"><%$entry.nice_created%> &#183; <% if sizeof(data->entry["categories"]) %> Filed under <% implode var="entry.category_links" final=" and " 
+<p class="postmeta"><%$entry.nice_created%> @ <%format_date var="entry.created" format="mod"%> <% if sizeof(data->entry["categories"]) %> &#183; Filed under <% implode var="entry.category_links" final=" and " 
 %><%endif%></p>
 
                         <div class="postentry">

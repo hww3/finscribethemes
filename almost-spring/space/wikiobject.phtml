@@ -12,7 +12,7 @@
                         <h2 class="posttitle"><a href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">
                                  <%$object.title%></a></h2>
 
-<p class="postmeta"><%$object.nice_created%> &#183; <% if sizeof(data->object["categories"]) %> Filed under <% implode var="object.category_links" final=" and "%><%endif%>
+<p class="postmeta"><%$object.nice_created%> @ <%format_date var="object.created" format="mod"%> <% if sizeof(data->object["categories"]) %> &#183; Filed under <% implode var="object.category_links" final=" and "%><%endif%>
 <%if data["user_object"] %>
 &#183;  <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
 xonmouseout="menuLayers.hide()">actions</a>

@@ -1,18 +1,18 @@
-<li> <a href="/space/start">start</a> </li>
-<li> <a href="/space/object-index">index</a> </li>
+<li> <a href="/space/start">Start</a> </li>
+<li> <a href="/space/object-index">Index</a> </li>
 <% if data["user_object"] %>
-<li> <a href="/exec/logout">logout</a> </li>
+<li> <a href="/exec/logout">Logout</a> </li>
 <% if data["object_is_weblog"] %>
-<li> <a href="#" onclick="openPostBlog('<%$obj%>'); return false;">post blog</a> </li>
+<li> <a href="#" onclick="openPostBlog('<%$obj%>'); return false;">Post Blog</a> </li>
 <% endif %>
 <% if data["is_admin"]==1 %>
-<li> <a href="/admin/">admin</a> </li>
+<li> <a href="/admin/">Admin</a> </li>
    <% endif %>
    <% else %>
-<li> <a href="#" onclick="openLogin()">login</a> </li>
+<li> <a href="#" onclick="openLogin()">Login</a> </li>
 <% endif %>
 
 <% if data["user_object"]  %>
 <li> <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
-xonmouseout="menuLayers.hide()">actions</a> </li>
+xonmouseout="menuLayers.hide()">Actions</a> </li>
 <% endif %>
