@@ -27,7 +27,7 @@ xonmouseout="menuLayers.hide()">actions</a> ]
 
 <% if data["object_is_weblog"] %>
 <% else %>
-<% if sizeof(data->object["categories"]) %> Posted in <% implode var="object.category_links" final=" and " %>
+<% if sizeof(data->object["categories"]) %> Posted in <% implode var="object.category_links" nice="and" %>
 <strong>|</strong> <%endif %>
          <% if data["numcomments"] %>
                  <a href="#" onclick="displayComments('wiper', '<%$obj%>')"><%$numcomments %> comments</a>
