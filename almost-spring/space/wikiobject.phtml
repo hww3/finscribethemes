@@ -32,7 +32,8 @@ xonmouseout="menuLayers.hide()">actions</a>
                         <p class="postfeedback">
 <a class="permalink" href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">Permalink</a>
 <a class="commentslink" onclick="displayComments('wiper', '<%$object.path%>'); return false;">Display Comments (<%sizeof var="object.comments" %>) </a> 
-/ <a href="/exec/comments/<%$object.path%>">Post Comment</a>
+/ <a href="/exec/comments/<%$object.path%>">Post Comment</a> <a 
+href="/exec/backlinks/<%$object.path%>">BackLinks</a>
 </p>
 <div id="wiper" style="display:none;"></div>
 <% endif %>
