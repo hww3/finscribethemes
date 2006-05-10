@@ -14,8 +14,7 @@
 
 <p class="postmeta"><%$object.nice_created%> @ <%format_date var="object.created" format="mod"%> <% if sizeof(data->object["categories"]) %> &#183; Filed under <% implode var="object.category_links" final=" and "%><%endif%>
 <%if data["user_object"] %>
-&#183;  <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
-xonmouseout="menuLayers.hide()">actions</a>
+&#183;  <a href="/exec/actions/<%$obj%>" id="Actions">actions</a>
 <% endif %>
 </p>
 
@@ -32,21 +31,10 @@ xonmouseout="menuLayers.hide()">actions</a>
                         <p class="postfeedback">
 <a class="permalink" href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">Permalink</a>
 <a class="commentslink" onclick="displayComments('wiper', '<%$object.path%>'); return false;">Display Comments (<%sizeof var="object.comments" %>) </a> 
-/ <a href="/exec/comments/<%$object.path%>">Post Comment</a> <a 
-href="/exec/backlinks/<%$object.path%>">BackLinks</a>
+/ <a href="/exec/comments/<%$object.path%>">Post Comment</a>
 </p>
 <div id="wiper" style="display:none;"></div>
 <% endif %>
 
 <%@include file="footer.phtml" %>
 <%@include file="bottom.phtml" %>
-
-
-
-
-
-
-
-
-
-
