@@ -3,16 +3,16 @@
 <% if data["user_object"] %>
 <li> <a href="/exec/logout">logout</a> </li>
 <% if data["object_is_weblog"] %>
-<li> <a href="#" onclick="openPostBlog('<%$obj%>'); return false;">post blog</a> </li>
+<li> <a href="/exec/post/<%$obj%>" id="PostBlog">post blog</a> 
+</li>
 <% endif %>
 <% if data["is_admin"]==1 %>
 <li> <a href="/admin/">admin</a> </li>
    <% endif %>
    <% else %>
-<li> <a href="#" onclick="openLogin()">login</a> </li>
+<li> <a href="/exec/login" id="Login">login</a> </li>
 <% endif %>
 
 <% if data["user_object"]  %>
-<li> <a href="#" onclick="menuLayers.show('actions', '/exec/actions/<%$obj%>', event, this)"
-xonmouseout="menuLayers.hide()">actions</a> </li>
+<li> <a href="/exec/actions/<%$obj%>" id="Actions">actions</a> </li>
 <% endif %>

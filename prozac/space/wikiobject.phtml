@@ -33,14 +33,14 @@ xonmouseout="menuLayers.hide()">actions</a> ]
             <% else %>
                  No comments
             <% endif %>
- <strong>|</strong> <a href="#" onclick="openPopup('/exec/comments/<%$obj%>', '80%'); return false;">Post
+ <strong>|</strong> <a id="PostComment" href="/exec/comments/<%$obj%>">Post
 a Comment</a> <strong>|</strong> <a href="/rss/<%$obj%>?type=comments">RSS Feed</a>
-  <% if data["metadata"]["trackbacks"] %> <strong>|</strong> <a href="#"
-onclick="openPopup('/exec/display_trackbacks/<%$obj%>', '80%'); return false;"><%sizeof var="metadata.trackbacks"%> TrackBacks</a> <% endif %>
-  <% if data["metadata"]["pingbacks"] %> <strong>|</strong> <a href="#"
-onclick="openPopup('/exec/display_pingbacks/<%$obj%>', '80%'); return false;"><%sizeof var="metadata.pingbacks"%>
+  <% if data["metadata"]["trackbacks"] %> <strong>|</strong> <a href="/exec/display_trackbacks/<%$obj%>" 
+id="TrackBacks"><%sizeof var="metadata.trackbacks"%> TrackBacks</a> <% endif %>
+  <% if data["metadata"]["pingbacks"] %> <strong>|</strong> <a href="/exec/display_pingbacks/<%$obj%>" 
+id="PingBacks"><%sizeof var="metadata.pingbacks"%>
 PingBacks</a> <% endif %>
-<strong>|</strong> <a href="/exec/backlinks/<%$obj%>">BackLinks</a>
+<strong>|</strong> <a id="BackLinks" href="/exec/backlinks/<%$obj%>">BackLinks</a>
          <p/>
 <div id="wiper" style="display:none;"></div>
 <% endif %>
