@@ -4,7 +4,7 @@
         <%@ include file="header.phtml" %>
 	<%@ include file="pagebegin.phtml" %>
 <!-- we need to provide a header for wiki content. -->
-
+<% breadcrumbs var="object.path" %>
       <% if data["object_is_weblog"] %>
       <% else %>
    <h3><%$title %></h3>
