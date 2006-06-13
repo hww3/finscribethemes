@@ -5,6 +5,7 @@
 	<%@ include file="pagebegin.phtml" %>
 <!-- we need to provide a header for wiki content. -->
 <% breadcrumbs var="object.path" %>
+<%@ include file="space/trackback.phtml" %>
       <% if data["object_is_weblog"] %>
       <% else %>
    <h3><%$title %></h3>
@@ -16,8 +17,15 @@
   <%$content%>
 <p>
 
+<%if data["object_is_weblog"] %>
+<% else if sizeof(data["object"]["attachments"])%>
+<h3>Attachments</h3>
+<%@ include file="space/_displayattachments.phtml"%>
+<p/>
+<%endif %>
+
 <% if data["object_is_weblog"] %>
-<% else %>
+<%else %>
 <% if sizeof(data->object["categories"]) %> Posted in <% implode var="object.category_links"%>
 <strong>|</strong> <%endif %>
          <% if data["numcomments"] %>
