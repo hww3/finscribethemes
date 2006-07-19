@@ -1,0 +1,53 @@
+  <%@ include file="top.phtml" %>
+  <%@ include file="header_top.phtml" %>
+    <title><%syspref var="site.name" %> :: <%$title %></title>
+    <% if data["object_is_weblog"] %>
+      <link rel="alternate" type="application/atom+xml" title="Atom Weblog Feed" href="/atom/<%$obj%>" />
+      <link rel="alternate" type="application/rss+xml" title="RSS Weblog Feed" href="/rss/<%$obj%>" />
+    <% else %>
+      <link rel="alternate" type="application/atom+xml" title="Atom Comments Feed" href="/atom/<%$obj%>?type=comments" />
+      <link rel="alternate" type="application/rss+xml" title="RSS Comments Feed" href="/rss/<%$obj%>?type=comments" />
+    <% endif %>
+    <%$heads%>
+  <%@ include file="header_bottom.phtml" %>
+  <%@ include file="pagebegin.phtml" %>
+  <div class="clearhack"></div>
+  <%@ include file="sidebar.phtml" %>
+  <% if data["object_is_weblog"] %>
+    <div id="blogroll">
+      <%$content%>
+    </div>
+  <% else %>
+    <div class="entry" id="<%$obj%>">
+      <div class="meta">
+	<h3 class="title"><%$title %></h3>
+	<span>Published <%$when%> by <%$editor_username%></span>
+	<% if data["numcategories"] %>
+	  <ul class="tags">Tags:
+	    <% foreach var="object.categories" val="categories" %>
+	      <li class="tag"><a href="/exec/category/<%$categories.category%>"><%$categories.category%></a></li>
+	    <% end %>
+	  </ul>
+	<% endif %>
+	<ul class="comments">
+	  <li>
+	    <% if data["numcomments"] %>
+	      <a href="#" onclick="displayComments('<%$obj%>')"><%$numcomments %> comments</a>
+	    <% else %>
+	      0 comments
+	    <% endif %>
+	    <a href="#" onclick="postComment('<%$obj%>')">post a comment</a>
+	  </li>
+	  <li><a href="#" onclick="displayReferences('<%$obj%>')">references</a></li>
+	  <% if data["numattachments"] %>
+	    <li><a href="#" onclick="displayAttachments('<%$obj%>')"><%$numattachments%> attachments</a></li>
+	  <% endif %>
+	</ul>
+      </div>
+      <div class="content">
+	<%$content%>
+      </div>
+    </div>
+  <% endif %>
+  <%@ include file="footer.phtml" %>
+  <%@ include file="bottom.phtml" %>

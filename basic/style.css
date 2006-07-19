@@ -1,0 +1,227 @@
+body {
+  background-color: #cc6633;
+  font-family: sans-serif;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+a {
+  color: #804020;
+}
+a:visited {
+  color: #804020;
+}
+a:active {
+  color: blue;
+}
+div#page {
+  background-color: #e0e0e0;
+  margin-left: 3em;
+  margin-right: 6em;
+  margin-top: 0px;
+  margin-bottom: 6em;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
+}
+div#header {
+  padding: 1em 1em 1em 1em;
+}
+div#header img {
+  float: left;
+  margin: 0em 1em 1em 0em;
+  border: 2px solid black;
+}
+div#header div#site_name {
+  font-size: xx-large;
+  font-weight: bold;
+}
+div#header div#site_tagline {
+  font-size: small;
+}
+ul#navigation {
+  clear: both;
+  display: block;
+  background-color: #cc6633;
+  margin: 0px 0px 0px 0px;
+  padding: 0.3em 0.3em 0.3em 0.3em;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+ul#navigation li {
+  display: inline;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  color: white;
+}
+ul#navigation li.navigation a {
+  font-weight: bold;
+  color: white;
+}
+ul#navigation a {
+  color: white;
+}
+ul#navigation a:visited {
+  color: white;
+}
+ul#navigation a:active {
+  color: blue;
+}
+ul#navigation li.navigation {
+  color: white;
+  border: 1px solid #cc6633;
+}
+ul#navigation li.navigation:hover {
+  color: white;
+  border: 1px solid white;
+}
+div.entry{ 
+  margin: 1em 1em 1em 1em;
+  padding-bottom: 1em;
+}
+div#sidebar { 
+  float: right;
+  border: 4px solid black;
+  background-color: #e0e0e0;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+}
+blockquote {
+  border-left: 4px solid blue;
+  margin-left: 0em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+div.meta h3 {
+  padding: 0em 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
+}
+div.meta span:before {
+  content: url('/theme/basic/img/time.png');
+  padding-right: 0.5em;
+}
+div.meta span {
+  font-size: small;
+}
+div.meta ul.comments:before {
+  content: url('/theme/basic/img/comment.png');
+  padding-right: 0.5em;
+}
+div.meta ul.comments {
+  display: block;
+  font-size: small;
+  padding: 0em 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
+}
+div.meta ul.comments li {
+  display: inline;
+  padding-right: 0.3em;
+}
+ul.tags:before {
+  content: url('/theme/basic/img/tag_blue.png');
+  padding-right: 0.5em;
+  padding-left: 1em;
+}
+ul.tags {
+  font-size: small;
+  display: inline;
+  padding: 0em 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
+  padding-left: 0em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul.tags li {
+  display: inline;
+  padding-left: 0.3em;
+}
+ul#footer {
+  display: block;
+  margin-left: 1em;
+  padding-left: 0em;
+  font-size: small;
+}
+ul#footer li {
+  display: inline;
+}
+img.right {
+  float: right;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+.fakeLink:hover {
+  cursor: pointer;
+}
+.hidden {
+  visibility: hidden;
+}
+div.extras {
+  margin-bottom: 1em;
+  font-size: small;
+}
+div.extras a {
+  font-weight: bold;
+  margin: 0.2em 0.2em 0.2em 0.2em;
+}
+div.extras form input {
+}
+div.clearhack {
+  clear: both;
+}
+button.login {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #804020;
+  background-color: #e0e0e0;
+  border: 0px solid #e0e0e0;
+  padding-left: 0em;
+  padding-right: 0em;
+  margin-right: 0.2em;
+}
+input.login {
+  width: 8em;
+  border: 1px solid black;
+  font-family: sans-serif;
+  font-size: small;
+  background-color: white;
+  display: block;
+  margin: 0.2em 0.2em 0.2em 0.2em;
+}
+.grey {
+  color: #a0a0a0;
+}
+div#working {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+a#Actions:before {
+  content: url('/theme/basic/img/pencil.png');
+  padding-right: 0.5em;
+}
+a#Actions {
+  float: right;
+  text-decoration: none;
+  border: 1px solid #804020;
+  padding: 0.1em 0.1em 0.1em 0.1em;
+  font-size: small;
+  vertical-align: middle;
+}
+li.breadcrumbs {
+  font-size: small;
+}
+ul#pageactions {
+  display: block;
+  font-weight: bold;
+  margin: 0em 0em 0em 0em;
+  padding: 0em 0em 0em 0em;
+}
+ul#pageactions li {
+  list-style-image: url('/theme/basic/img/pencil.png');
+  list-style-position: inside;
+  font-weight: normal;
+  font-size: small;
+  padding-left: 1em;
+}

@@ -1,0 +1,23 @@
+<% if data["user_object"] %>
+  <ul id="pageactions">Page Actions:
+    <% if data["iseditable"] %>
+      <li><a href="/exec/edit/<%$object.path%>">edit page contents</a></li>
+      <li><a href="#" onclick="openPopup('/exec/editattachments/<%$object.path%>', '60%');return false;">edit attachments</a></li>
+      <li><a href="#" onclick="openPopup('/exec/editcategory/<%$object.path%>', '60%');return false;">edit categories</a></li>
+      <li><a href="/exec/move/<%$object.path%>">move page</a></li>
+      <li><a href="/exec/delete/<%$object.path%>">delete page</a></li>
+    <% endif %>
+    <% if data["islockable"] %>
+      <% if data["islocked"] %>
+	<li><a href="/exec/toggle_lock/<%$object.path%>">unlock this page</a></li>
+      <% else %> 
+        <li><a href="/exec/toggle_lock/<%$object.path%>">lock this page</a></li>
+      <% endif %> 
+      <% if data["comments_closed"] %>
+       <li><a href="/exec/toggle_comments/<%$object.path%>">enable comments</a></li>
+     <% else %>
+       <li><a href="/exec/toggle_comments/<%$object.path%>">disable comments</a></li>
+     <% endif %>
+    <% endif %>
+  </ul>
+<% endif %>

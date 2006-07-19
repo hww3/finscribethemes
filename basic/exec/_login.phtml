@@ -1,0 +1,21 @@
+<form action="/exec/login" id="loginform" method="post">
+<% if data->ajax %>
+  <input class="hidden" type="hidden" name="return_to" value="<%$return_to%>" />
+  <% if sizeof(data["UserName"]) %>
+    <input class="login" type="text" id="UserName" name="UserName" value="<%$UserName%>" />
+  <% else %>
+    <input class="login grey" type="text" id="UserName" name="UserName" value="username" />
+  <% endif %>
+  <input class="login grey" type="text" id="Password" name="Password" value="password" />
+  <button id="loginButton" class="login" type="submit" name="action" value="login" title="I have finished entering my username and password, log me in">login</button>
+  <a href="/exec/forgotpassword" title="Send me a password reminder">forgot</a>
+  <a href="/exec/createaccount" title="Create a new account">new</a>
+<% else %>
+  <input type="hidden" name="return_to" value="<%$return_to%>" />
+  <input type="text" id="UserName" name="UserName" value="<%$UserName%>" />
+  <input  type="password" name="Password" />
+  <input type="submit" name="action" value="login" />
+  <a href="/exec/forgotpassword" title="Send me a password reminder">password reminder</a>
+  <a href="/exec/createaccount" title="Create a new account">create account</a>
+<% endif %>
+</form>
