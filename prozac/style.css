@@ -258,7 +258,7 @@ visibility: hidden;
 
 /* Hides from IE-mac \*/
 * html .clearfix {height: 1%;}
-.clearfix {display: block;}
+.clearfix {display: block; z-index:500;}
 /* End hide from IE-mac */
 
 
@@ -320,7 +320,7 @@ blockquote {
 	}
 
 	/*post stylng*/
-.post{margin:0 0 25px 0;}
+.post{margin:10px 10px 25px 0;}
 
 .post .info{
 padding:3px 3px 3px 8px;
@@ -346,7 +346,7 @@ li.rssreader {
 
 
 
-/* $Id: style.css,v 1.3 2007-02-21 22:06:06 hww3 Exp $ */
+/* $Id: style.css,v 1.4 2007-03-07 19:24:38 hww3 Exp $ */
 
 table.acidfree {
     margin: auto;
