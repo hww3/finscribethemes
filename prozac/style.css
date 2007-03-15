@@ -258,7 +258,7 @@ visibility: hidden;
 
 /* Hides from IE-mac \*/
 * html .clearfix {height: 1%;}
-.clearfix {display: block; z-index:500;}
+.clearfix {display: block; z-index:10;}
 /* End hide from IE-mac */
 
 
@@ -346,7 +346,7 @@ li.rssreader {
 
 
 
-/* $Id: style.css,v 1.4 2007-03-07 19:24:38 hww3 Exp $ */
+/* $Id: style.css,v 1.5 2007-03-15 20:02:58 hww3 Exp $ */
 
 table.acidfree {
     margin: auto;
