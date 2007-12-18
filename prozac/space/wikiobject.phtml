@@ -4,7 +4,7 @@
         <%@ include file="header.phtml" %>
 	<%@ include file="pagebegin.phtml" %>
 <!-- we need to provide a header for wiki content. -->
-<% breadcrumbs var="object.path" %>
+<% breadcrumbs var="$object.path" %>
 <%@ include file="space/trackback.phtml" %>
       <% if data["object_is_weblog"] %>
       <% else %>
@@ -13,7 +13,7 @@
 <%$when%>. Version #<%$version%>.
 <p>
      <% endif %>
-<div class="flash-message"><% flash var="msg" %></div>
+<div class="flash-message"><% flash %></div>
   <%$content%>
 <p>
 
@@ -26,7 +26,7 @@
 
 <% if data["object_is_weblog"] %>
 <%else %>
-<% if sizeof(data->object["categories"]) %> Posted in <% implode var="object.category_links"%>
+<% if sizeof(data->object["categories"]) %> Posted in <% implode var="$object.category_links"%>
 <strong>|</strong> <%endif %>
          <% if data["numcomments"] %>
                  <a href="#" onclick="displayComments('wiper', '<%$obj%>')"><%$numcomments %> comments</a>
@@ -36,9 +36,9 @@
  <strong>|</strong> <a id="PostComment" href="/exec/comments/<%$obj%>">Post
 a Comment</a> <strong>|</strong> <a href="/rss/<%$obj%>?type=comments">RSS Feed</a>
   <% if data["metadata"]["trackbacks"] %> <strong>|</strong> <a href="/exec/display_trackbacks/<%$obj%>" 
-id="TrackBacks"><%sizeof var="metadata.trackbacks"%> TrackBacks</a> <% endif %>
+id="TrackBacks"><%sizeof var="$metadata.trackbacks"%> TrackBacks</a> <% endif %>
   <% if data["metadata"]["pingbacks"] %> <strong>|</strong> <a href="/exec/display_pingbacks/<%$obj%>" 
-id="PingBacks"><%sizeof var="metadata.pingbacks"%>
+id="PingBacks"><%sizeof var="$metadata.pingbacks"%>
 PingBacks</a> <% endif %>
 <strong>|</strong> <a id="BackLinks" href="/exec/backlinks/<%$obj%>">BackLinks</a>
          <p/>

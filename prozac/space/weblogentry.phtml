@@ -10,9 +10,9 @@
                         </div>
 
                         <p class="info"><% if 
-sizeof(data->entry["categories"]) %> Posted in <% implode var="entry.category_links" nice="and"%> <strong>|</strong> <%endif %> 
+sizeof(data->entry["categories"]) %> Posted in <% implode var="$entry.category_links" nice="and"%> <strong>|</strong> <%endif %> 
 <a class="DisplayComments" id="<%$entry.id%>" onclick="displayComments('wiper<%$entry.id%>', '<%$entry.path%>'); 
-return false;"><%sizeof var="entry.comments"%> comments</a>
+return false;"><%sizeof var="$entry.comments"%> comments</a>
 <strong>|</strong>
 <a href="/exec/comments/<%$entry.path%>">Post Comment</a> 
 <strong>|</strong>

@@ -24,7 +24,7 @@
 	<span>Published <%$when%> by <%$editor_username%></span>
 	<% if data["numcategories"] %>
 	  <ul class="tags">Tags:
-	    <% foreach var="object.categories" val="categories" %>
+	    <% foreach var="$object.categories" val="categories" %>
 	      <li class="tag"><a href="/exec/category/<%$categories.category%>"><%$categories.category%></a></li>
 	    <% end %>
 	  </ul>
