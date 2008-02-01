@@ -3,6 +3,7 @@
         <%$heads %>
         <%@ include file="header.phtml" %>
 	<%@ include file="pagebegin.phtml" %>
+
 <!-- we need to provide a header for wiki content. -->
 <% breadcrumbs var="$object.path" %>
 <%@ include file="space/trackback.phtml" %>
@@ -18,7 +19,7 @@
 <p>
 
 <%if data["object_is_weblog"] %>
-<% elseif sizeof(data["object"]["attachments"])%>
+<% elseif sizeof(data->object["attachments"])%>
 <h3>Attachments</h3>
 <%@ include file="space/_displayattachments.phtml"%>
 <p/>
@@ -26,7 +27,7 @@
 
 <% if data["object_is_weblog"] %>
 <%else %>
-<% if sizeof(data->object["categories"]) %> Posted in <% implode var="$object.category_links"%>
+<% if sizeof(data->object["categories"]) %> Posted in <% implode var="$object.category_links" nice="and"%> 
 <strong>|</strong> <%endif %>
          <% if data["numcomments"] %>
                  <a href="#" onclick="displayComments('wiper', '<%$obj%>')"><%$numcomments %> comments</a>
@@ -38,8 +39,7 @@ a Comment</a> <strong>|</strong> <a href="/rss/<%$obj%>?type=comments">RSS Feed<
   <% if data["metadata"]["trackbacks"] %> <strong>|</strong> <a href="/exec/display_trackbacks/<%$obj%>" 
 id="TrackBacks"><%sizeof var="$metadata.trackbacks"%> TrackBacks</a> <% endif %>
   <% if data["metadata"]["pingbacks"] %> <strong>|</strong> <a href="/exec/display_pingbacks/<%$obj%>" 
-id="PingBacks"><%sizeof var="$metadata.pingbacks"%>
-PingBacks</a> <% endif %>
+id="PingBacks"><%sizeof var="$metadata.pingbacks"%> PingBacks</a> <% endif %>
 <strong>|</strong> <a id="BackLinks" href="/exec/backlinks/<%$obj%>">BackLinks</a>
          <p/>
 <div id="wiper" style="display:none;"></div>
