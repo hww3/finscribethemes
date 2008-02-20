@@ -21,7 +21,7 @@
 
      <% endif %>
 <div class="flash-message"><% flash %></div>
-  <%$content%>
+  <%render content="$content" object="$object"%>
 <p>
 
 <% if data["object_is_weblog"] %>

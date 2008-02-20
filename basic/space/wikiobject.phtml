@@ -15,7 +15,7 @@
   <%@ include file="sidebar.phtml" %>
   <% if data["object_is_weblog"] %>
     <div id="blogroll">
-      <%$content%>
+  <%render content="$content" object="$object"%>
     </div>
   <% else %>
     <div class="entry" id="<%$obj%>">
@@ -45,7 +45,7 @@
 	</ul>
       </div>
       <div class="content">
-	<%$content%>
+  <%render content="$content" object="$object"%>
       </div>
     </div>
   <% endif %>
