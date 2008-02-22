@@ -7,25 +7,25 @@
 <!-- we need to provide a header for wiki content. -->
 <% breadcrumbs var="$object.path" %>
 <%@ include file="space/trackback.phtml" %>
-      <% if data["object_is_weblog"] %>
+      <% if data["request"]["misc"]["object_is_weblog"] %>
       <% else %>
    <h3><%$title %></h3>
    Created by <%$author_username %>. Last updated by <%$editor_username %>,
-<%$when%>. Version #<%$version%>.
+<%friendly_date var="$object_version.created"%>. Version #<%$object_version.version%>.
 <p>
      <% endif %>
 <div class="flash-message"><% flash %></div>
-  <%render content="$content" object="$object"%>
+  <%$content%>
 <p>
 
-<%if data["object_is_weblog"] %>
+<%if data["request"]["misc"]["object_is_weblog"] %>
 <% elseif sizeof(data->object["attachments"])%>
 <h3>Attachments</h3>
 <%@ include file="space/_displayattachments.phtml"%>
 <p/>
 <%endif %>
 
-<% if data["object_is_weblog"] %>
+<% if data["request"]["misc"]["object_is_weblog"] %>
 <%else %>
 <% if sizeof(data->object["categories"]) %> Posted in <% implode var="$object.category_links" nice="and"%> 
 <strong>|</strong> <%endif %>
