@@ -1,3 +1,4 @@
+
  <div class="post" id="post-<%$entry.id%>">
                         <h2><a href="/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">
                                  <%$subject%></a></h2>
@@ -6,7 +7,7 @@
 <%$entry.author.Name%> </small></p>
 
                         <div class="entry">
-  <%render content="$content" object="$entry"%>
+                             <%render content="$content" object="$entry"%>
                         </div>
 
                         <p class="info"><% if 
@@ -14,7 +15,7 @@ sizeof(data->entry["categories"]) %> Posted in <% implode var="$entry.category_l
 <a class="DisplayComments" id="<%$entry.id%>" onclick="displayComments('wiper<%$entry.id%>', '<%$entry.path%>'); 
 return false;"><%sizeof var="$entry.comments"%> comments</a>
 <strong>|</strong>
-<a href="/exec/comments/<%$entry.path%>">Post Comment</a> 
+<a href="/exec/comments/<%$entry.path%>">Post a Comment</a> 
 <strong>|</strong>
 </div>
 <div id="wiper<%$entry.id%>" style="display:none; padding-left:20px;"></div>

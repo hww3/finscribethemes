@@ -11,20 +11,21 @@
       <% else %>
    <h3><%$title %></h3>
    Created by <%$author_username %>. Last updated by <%$editor_username %>,
-<%friendly_date var="$object_version.created"%>. Version #<%$object_version.version%>.
+<%friendly_date var="$object_version.created" %>. Version #<%$object_version.version%>.
 <p>
      <% endif %>
 <div class="flash-message"><% flash %></div>
   <%$content%>
 <p>
-
-<%if data["request"]["misc"]["object_is_weblog"] %>
+      
+<% if data["request"]["misc"]["object_is_weblog"] %>
 <% elseif sizeof(data->object["attachments"])%>
 <h3>Attachments</h3>
 <%@ include file="space/_displayattachments.phtml"%>
 <p/>
 <%endif %>
 
+      
 <% if data["request"]["misc"]["object_is_weblog"] %>
 <%else %>
 <% if sizeof(data->object["categories"]) %> Posted in <% implode var="$object.category_links" nice="and"%> 
@@ -46,7 +47,6 @@ id="PingBacks"><%sizeof var="$metadata.pingbacks"%> PingBacks</a> <% endif %>
 <% endif %>
 
 </div>
-
 <%@include file="footer.phtml" %>
 <%@include file="bottom.phtml" %>
 
