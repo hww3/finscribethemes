@@ -1,21 +1,19 @@
 
  <div class="post" id="post-<%$entry.id%>">
-                        <h2><a href="/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">
+                        <h2><a href="<%syspref var="site.url"%>/space/<%$entry.path%>" rel="bookmark" title="Permanent Link to <%$subject%>">
                                  <%$subject%></a></h2>
 <p class="info"><small><img src="<%theme show="path"%>/images/timeicon.gif" alt="" />
 <%$entry.nice_created %> by <img src="<%theme show="path"%>/images/author.gif" alt="" />
-<%$entry.author.Name%> </small></p>
-
+<%$entry.author.name%> </small></p>
                         <div class="entry">
                              <%render content="$content" object="$entry"%>
                         </div>
 
                         <p class="info"><% if 
 sizeof(data->entry["categories"]) %> Posted in <% implode var="$entry.category_links" nice="and"%> <strong>|</strong> <%endif %> 
-<a class="DisplayComments" id="<%$entry.id%>" onclick="displayComments('wiper<%$entry.id%>', '<%$entry.path%>'); 
-return false;"><%sizeof var="$entry.comments"%> comments</a>
+ <a href="#" id="trigger_comments-<%$entry.id%>"><%sizeof var="$entry.comments"%> comments</a>
 <strong>|</strong>
-<a href="/exec/comments/<%$entry.path%>">Post a Comment</a> 
+<a href="<%syspref var="site.url"%>/exec/comments/<%$entry.path%>">Post a Comment</a> 
 <strong>|</strong>
 </div>
-<div id="wiper<%$entry.id%>" style="display:none; padding-left:20px;"></div>
+<div dojoType="fins.widget.Comments" refreshUrl="<%syspref var="site.url"%>/exec/getcomments/<%$entry.path%>" id="<%$entry.id%>_comments" connectorId="trigger_comments-<%$entry.id%>"></div>

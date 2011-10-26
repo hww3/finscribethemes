@@ -9,6 +9,14 @@ Author URI: http://www.kaushalsheth.com
 */
 
 
+.rounded {
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    behavior: url(/themes/prozac/border-radius.htc);
+    border-radius: 7px;
+}
+
 /******* structure and layout *******/
 body {
 font-family:Arial, Helvetica, sans-serif; 
