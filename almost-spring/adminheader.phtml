@@ -1,0 +1,23 @@
+<!-- this is header.phtml -->
+   <link rel="STYLESHEET" type="text/css" href="<%syspref var="site.url"%>/theme/default/default.css"/>
+   <link rel="STYLESHEET" type="text/css" href="<% theme show="path"%>style.css"/>
+   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/tundra/tundra.css"/>
+   <link rel="STYLESHEET" type="text/css" href="<%syspref var="site.url"%>/static/javascripts/fins/widget/templates/Comments.css"/>
+   <!-- IE doesn't like XHTML markup for an empty script container :/ -->
+
+<script type='text/javascript'>
+  djConfig = {
+    parseOnLoad: true, 
+    debugAtAllCosts:false,
+    disableFlashStorage : true,
+<% if data->config->config_name == "dev" %>
+    useXDomain: false,
+    isDebug:true, 
+<% else %>
+    useXDomain: true,
+    isDebug: false,
+<% endif %>
+  };
+
+</script>
+<div style="display:none" id="object"><%$obj%></div>
