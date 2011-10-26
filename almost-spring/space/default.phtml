@@ -31,10 +31,14 @@
 
                         <p class="postfeedback">
 <a class="permalink" href="/space/<%$object.path%>" rel="bookmark" title="Permanent Link to <%$object.title%>">Permalink</a>
-<a class="commentslink" onclick="displayComments('wiper', '<%$object.path%>'); return false;">Display Comments (<%sizeof var="$object.comments" %>) </a> 
-/ <a href="/exec/comments/<%$object.path%>">Post Comment</a>
+         <% if data["numcomments"] %>
+                 <a class="commentslink" href="#" id="trigger_comments-<%$obj%>"><%$numcomments %> comments</a>
+            <% else %>
+                 No comments
+            <% endif %>
+/  <a class="commentslink" id="PostComment" href="/exec/comments/<%$obj%>"><%LOCALE id="11" string="Post a Comment"%></a>
 </p>
-<div id="wiper" style="display:none;"></div>
+   <div dojoType="fins.widget.Comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>"></div>
 <% endif %>
 
 <%@include file="footer.phtml" %>
