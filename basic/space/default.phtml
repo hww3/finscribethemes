@@ -1,15 +1,7 @@
   <%@ include file="top.phtml" %>
-  <%@ include file="header_top.phtml" %>
     <title><%syspref var="site.name" %> :: <%$title %></title>
-    <% if data["object_is_weblog"] %>
-      <link rel="alternate" type="application/atom+xml" title="Atom Weblog Feed" href="/atom/<%$obj%>" />
-      <link rel="alternate" type="application/rss+xml" title="RSS Weblog Feed" href="/rss/<%$obj%>" />
-    <% else %>
-      <link rel="alternate" type="application/atom+xml" title="Atom Comments Feed" href="/atom/<%$obj%>?type=comments" />
-      <link rel="alternate" type="application/rss+xml" title="RSS Comments Feed" href="/rss/<%$obj%>?type=comments" />
-    <% endif %>
     <%$heads%>
-  <%@ include file="header_bottom.phtml" %>
+  <%@ include file="header.phtml" %>
   <%@ include file="pagebegin.phtml" %>
   <div class="clearhack"></div>
   <%@ include file="sidebar.phtml" %>
@@ -22,21 +14,19 @@
       <div class="meta">
 	<h3 class="title"><%$title %></h3>
 	<span>Published <%friendly_date var="$object_version.created"%> by <%$editor_username%></span>
-	<% if data["numcategories"] %>
-	  <ul class="tags">Tags:
+	<% if data["numcategories"] %><ul class="tags">Tags:
 	    <% foreach var="$object.categories" val="categories" %>
 	      <li class="tag"><a href="/exec/category/<%$categories.category%>"><%$categories.category%></a></li>
 	    <% end %>
 	  </ul>
-	<% endif %>
-	<ul class="comments">
+	<% endif %><ul class="comments">
 	  <li>
 	    <% if data["numcomments"] %>
-	      <a href="#" onclick="displayComments('<%$obj%>')"><%$numcomments %> comments</a>
+	      <a href="#" id="trigger_comments-<%$obj%>"><%$numcomments %> comments</a>
 	    <% else %>
 	      0 comments
 	    <% endif %>
-	    <a href="#" onclick="postComment('<%$obj%>')">post a comment</a>
+	    <a id="PostComment" href="/exec/comments/<%$obj%>">post a comment</a>
 	  </li>
 	  <li><a href="#" onclick="displayReferences('<%$obj%>')">references</a></li>
 	  <% if data["numattachments"] %>
@@ -47,6 +37,7 @@
       <div class="content">
  <%$content%>
       </div>
+      <div dojoType="fins.widget.Comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>"></div>
     </div>
   <% endif %>
   <%@ include file="footer.phtml" %>
