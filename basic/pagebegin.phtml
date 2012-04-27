@@ -5,19 +5,24 @@
       <div id="site_name"><% syspref var="site.name"%></div>
       <div id="site_tagline"><% syspref var="site.tagline"%></div>
     </div>
+
     <ul id="navigation">
       <li class="navigation" id="start"><a href="/space/start" title="Home page">start</a></li>
       <li class="navigation" id="index"><a href="/space/object-index" title="Index of pages">index</a></li>
       <% if data["user_object"] %>
-	<li class="navigation" id="logout"><a href="/exec/logout" title="Currently logged in as <%$user_object.UserName%>, log out of the site.">logout</a></li>
+	<li class="navigation" id="logout"><a href="<%action_url controller="/exec" action="logout"%>"
+		  title="Currently logged in as <%$user_object.UserName%>, log out of the site.">logout</a></li>
+	<li class="navigation" id="account"><%action_link controller="/account"%>my account</a></li>
 	<% if data["object_is_weblog"] %>
-	  <li class="navigation" id="blogpost"><a href="/exec/post/<%$obj%>" id="PostBlog" title="Post a blog entry">post blog</a>
+	  <li class="navigation" id="blogpost"><a href="<%action_url controller="/exec" action="post" args="$metadata.weblog_source_path"%>" id="PostBlog" 
+		  title="Post a blog entry">post blog</a>
 	<% endif %>
 	<% if data["is_admin"]==1 %>
-	  <li class="navigation" id="admin"><a href="/admin/" title="Administer the site">admin</a></li>
+	  <li class="navigation" id="admin"><a href="<%action_url controller="/admin"%>" title="Administer the site">admin</a></li>
 	<% endif %>
       <% else %>
-	<li class="navigation" id="login"><a href="/exec/login" id="Login" title="Log into the site">login</a>
+	<li class="navigation" id="login"><a href="<%action_url controller="/exec" action="login"%>" id="Login" 
+              	title="Log into the site">login</a>
       <% endif %>
       <% if data["user_object"] %>
 	<li class="navigation" id="actions"><a href="/exec/actions/<%$obj%>" title="Edit or change this document">actions</a></li>
