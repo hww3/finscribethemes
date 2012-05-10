@@ -1,7 +1,7 @@
 	<%@ include file="top.phtml" %>
+        <%@ include file="header.phtml" %>
         <title><%syspref var="site.name" %> :: <%$title %></title>
         <%$heads %>
-        <%@ include file="header.phtml" %>
 	<%@ include file="pagebegin.phtml" %>
 
 <!-- we need to provide a header for wiki content. -->
@@ -49,6 +49,7 @@ id="PingBacks"><%sizeof var="$metadata.pingbacks"%> PingBacks</a> <% endif %>
 </div>
 
 
+<%@include file="pageend.phtml" %>
 <%@include file="footer.phtml" %>
 <%@include file="bottom.phtml" %>
 
