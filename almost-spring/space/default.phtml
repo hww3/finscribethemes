@@ -1,9 +1,11 @@
 	<%@ include file="top.phtml" %>
+        <%@ include file="header.phtml" %>
         <title><%syspref var="site.name" %> :: <%$title %></title>
         <%$heads %>
-        <%@ include file="header.phtml" %>
+
 	<%@ include file="pagebegin.phtml" %>
 <!-- we need to provide a header for wiki content. -->
+
         <% breadcrumbs var="$object.path" %>
         <%@ include file="space/trackback.phtml" %>
 
@@ -41,5 +43,6 @@
    <div dojoType="fins.widget.Comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>"></div>
 <% endif %>
 
+<%@include file="pageend.phtml" %>
 <%@include file="footer.phtml" %>
 <%@include file="bottom.phtml" %>
