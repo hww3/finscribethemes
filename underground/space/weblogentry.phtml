@@ -4,11 +4,9 @@
 <p/>
 <p class="comments clear">
 <%action_link controller="/space" args="$entry.path"%>Read More</a> | <% if sizeof(data->entry["categories"]) %><%LOCALE id="97" string="Posted in"%> <% implode var="$entry.category_links" final=" and " %> |
-<% endif %> <a href="#" id="trigger_comments-<%$entry.id%>"><% sizeof 
-var="$entry.comments"%> <%LOCALE id="98" string="comments"%></a></b> | <a 
-href="<%syspref var="site.url"%>/exec/comments/<%$entry.path%>"><%LOCALE id="99" string="Post Comment"%></a> 
-| <a href="<%syspref var="site.url"%>/rss/<%$entry.path%>?type=comments"><%LOCALE id="12" string="RSS Feed"%></a> | 
-<%$entry.nice_created%>
+<% endif %> <a href="#" id="trigger_comments-<%$entry.id%>"><% sizeof var="$entry.comments"%> <%LOCALE id="98" string="comments"%></a></b> 
+| <%action_link controller="/exec" action="comments" args="$entry.path"><%LOCALE id="99"string="Post Comment"%></a> 
+| <%format_date var="$entry.created" format="short_date"%>
 <p/>
-<div dojoType="fins.widget.Comments" refreshUrl="<%syspref var="site.url"%>/exec/getcomments/<%$entry.path%>" id="<%$entry.id%>_comments" connectorId="trigger_comments-<%$entry.id%>"></div>
+<div dojoType="fins.widget.Comments" refreshUrl="<%action_url controller="/exec" action="getcomments" args="$entry.path"%>" id="<%$entry.id%>_comments" connectorId="trigger_comments-<%$entry.id%>"></div>
 <p/>

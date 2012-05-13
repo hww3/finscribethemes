@@ -20,14 +20,15 @@
             <% else %>
                  <%LOCALE id="106" string="No comments"%> 
             <% endif %>
- |  <a id="PostComment" href="/exec/comments/<%$obj%>"><%LOCALE id="11" string="Post a Comment"%></a> | <a href="/rss/<%$obj%>?type=comments"><%LOCALE id="12" string="RSS Feed"%></a>
-  <% if data["metadata"]["trackbacks"] %> | <a href="/exec/display_trackbacks/<%$obj%>" id="TrackBacks"><%sizeof var="$metadata.trackbacks"%> 
+ |  <%action_link _id="PostComment" controller="/exec" action="comments" args="$obj"%><%LOCALE id="11" string="Post a Comment"%></a> | 
+<%action_link controller="/rss" args="$obj" type="comments"%><%LOCALE id="12" string="RSS Feed"%></a>
+  <% if data["metadata"]["trackbacks"] %> | <%action_link controller="/exec" action="display_trackbacks" args="$obj" _id="TrackBacks"%><%sizeof var="$metadata.trackbacks"%> 
 <%LOCALE id="100" string="TrackBacks"%></a> <% endif %>
-  <% if data["metadata"]["pingbacks"] %> | <a href="/exec/display_pingbacks/<%$obj%>"><%sizeof var="$metadata.pingbacks"%> 
-<%LOCALE id="101" string="PingBacks"%></a> <% endif %> | <a 
-href="/exec/backlinks/<%$obj%>" id="BackLinks"><%LOCALE id="107" string="BackLinks"%></a>
+  <% if data["metadata"]["pingbacks"] %> | <%action_link controller="/exec" action="display_pingbacks" args="$obj" _id="PingBacks"%><%sizeof var="$metadata.pingbacks"%> 
+<%LOCALE id="101" string="PingBacks"%></a> <% endif %> 
+| <%action_link controller="/exec" action="backlinks" args="$obj" _id="BackLinks"%><%LOCALE id="107" string="BackLinks"%></a>
          <p/>
-                        <div dojoType="fins.widget.Comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>"></div>
+                        <div dojoType="fins.widget.Comments" refreshUrl="<%action_url controller="/exec" action="getcomments" args="$obj"%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>"></div>
 <% endif %>
 </p>
 

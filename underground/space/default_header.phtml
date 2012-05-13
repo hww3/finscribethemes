@@ -8,7 +8,7 @@
 
 <% if data["user_object"]  %>
 <div class="snip-buttons">
-[ <a id="Actions" href="/exec/actions/<%$obj%>">actions</a> ]
+[ <%action_link _id="Actions" controller="/exec" action="actions" args="$obj"%>actions</a> ]
 </div>
 <% endif %>
 <div id="snip-wrapper">
