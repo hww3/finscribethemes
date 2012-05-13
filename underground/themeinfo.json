@@ -1,0 +1,5 @@
+{
+  description: "",
+
+  notes: "This site displays portlet-1 at the top of the left hand column, and if portlet-2 exists, will display that below the 'meta' block. Additionally, the preference 'site.sections' may be used to provide a comma delimited set of section names that will be used as tabs across the top of the header. These section names should correspond to top-level pages, such as About,Contact Info, etc."
+}

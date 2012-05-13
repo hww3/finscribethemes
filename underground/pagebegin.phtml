@@ -1,0 +1,39 @@
+</head>
+<body class="tundra">
+<!-- wrap starts here -->
+<div id="wrap">
+
+		<!-- header -->
+		<div id="header">			
+					
+			<span id="slogan"><%syspref var="site.tagline"%></span>
+			
+			<!-- tabs -->
+			<%syspref var="site.sections" val="About,Archives,Downloads" store="sections" %>
+			<%split_string var="$sections" on="," val="sectionparts"%>
+
+			<ul>
+				<li<%if data->section == "start"%> id="current"<%endif%>><%action_link controller="/space"%><span>Home</span></a></li>
+
+			<%foreach var="$sectionparts" val="sec"%>
+				<li <%if data->section == data->sec%> id="current"<%endif%>><%action_link controller="/space" args="$sec"%><span><%$sec%></span></a></li>
+			<%end>%>
+			</ul>
+											
+		</div>
+		
+		<div id="header-logo">			
+			
+			<%syspref var="site.name" store="sitename" %>
+			<%split_string var="$sitename" on=" " val="siteparts"%>
+			
+			<div id="logo"><%$siteparts.0%><span class="red"><%$siteparts.1%></span></div>		
+			
+			<form method="post" class="search" action="#">
+				<p><input name="search_query" class="textbox" type="text" />
+  				<input name="search" class="searchbutton" value="Search" type="submit" /></p>
+			</form>
+						
+		</div>
+		
+       	<div id="main">

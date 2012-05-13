@@ -1,0 +1,18 @@
+<% if data["object_is_weblog"] %>
+<% else %>
+<h1><%$title %></h1>
+   <%LOCALE id="103" string="Created by"%> <%$author_username %>. <%LOCALE id="103" string="Created by"%> <%$editor_username %>,
+<%friendly_date var="$object_version.created"%>. <%LOCALE id="9" string="Version #"%><%$object_version.version%>.
+     <% endif %>
+
+
+<% if data["user_object"]  %>
+<div class="snip-buttons">
+[ <a id="Actions" href="/exec/actions/<%$obj%>">actions</a> ]
+</div>
+<% endif %>
+<div id="snip-wrapper">
+
+   <div id="snip-content">
+
+   <div class="flash-message"><% flash %></div>

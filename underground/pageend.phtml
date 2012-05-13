@@ -1,0 +1,58 @@
+											
+		</div>
+
+        <div id="sidebar" >
+
+			<%snip snip="themes/default/portlet-1"%>
+
+			<h1>Meta</h1>
+			<div class="left-box">
+                <ul>
+					<li> <%action_link controller="/space" args="start"%>Start</a> </li>
+					<li> <%action_link controller="/space" args="object-index"%>Index</a> </li>
+					<% if data["user_object"] %>
+					<li> <%action_link controller="/exec" action="logout"%>Logout</a> </li>
+					<% if data["object_is_weblog"] %>
+					<li> <%action_link controller="/exec" action="post" args="$obj" _id="PostBlog"%>Post Blog</a> 
+					</li>
+					<% endif %>
+					<% if data["is_admin"]==1 %>
+					<li> <%action_link controller="/admin" _id="Admin"%>Admin</a> </li>
+					   <% endif %>
+					   <% else %>
+					<li> <%action_link controller="/exec" action="login" _id="Login"%>Login</a> </li>
+					<% endif %>
+
+					<% if data["user_object"]  %>
+					<li> <%action_link controller="/exec" action="actions" args="$obj" _id="Actions"%>Actions</a> </li>
+					<% endif %>
+
+                </ul>
+			</div>
+
+			<%snip snip="themes/default/portlet-2"%>
+
+
+		</div>
+		
+<!-- wrap ends here -->
+</div>
+		
+<!-- footer starts here -->
+<div class="footer">
+	
+		<p>	
+		    <%syspref var="site.copyright"%>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+			<%syspref var="site.blurb"%>
+
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <%action_link controller="/space"%>Home</a> |
+   	        <%action_link controller="/space" args="object-index"%>Site Map</a> |
+		    <%action_link controller="/rss"%>RSS Feed</a> |
+		</p>
+		
+</div>	
+	
