@@ -1,0 +1,49 @@
+</head>
+<!--
+<%syspref var="site.sections" val="About,Archives,Downloads" store="sections" %>
+<%split_string var="$sections" on="," val="sectionparts"%>
+-->
+<body class="tundra">
+
+<!--header -->
+<div id="header-wrap"><header>
+
+ 	<hgroup>
+        <h1><%action_link controller="/space"%>CoolBlue</a></h1>
+        <h3>just another site</h3>
+    </hgroup>
+    <nav>
+		<ul>
+			<li<%if data->section == "start" %> id="current"<%endif%>><%action_link controller="/space"%>Home</a><span></span></li><%foreach var="$sectionparts" val="sec"%>
+			<li<%if data->section == data->sec %> id="current"<%endif%>><%action_link controller="/space" args="$sec"%><%$sec%></a><span></span></li><%end>%>
+		</ul>
+	</nav>
+    <div class="subscribe">
+        <span>Subscribe:</span> <a href="#">RSS</a> 	
+<% if data["is_admin"]==1 %>| <%action_link controller="/admin" _id="Admin"%>Admin</a><% endif %>
+<% if data["user_object"] %>| <%action_link controller="/exec" action="logout"%>Logout</a>
+	| <%action_link controller="/exec" action="actions" args="$obj" _id="Actions"%>Actions</a>
+<% if data["request"]["misc"]["object_is_weblog"] %>| <%action_link controller="/exec" action="post" args="$obj" _id="PostBlog"%>Post Blog</a><%endif%>
+<%else%>| <%action_link controller="/exec" action="login" _id="Login"%>Login</a><%endif%>
+    </div>
+
+   <form id="quick-search" method="get" action="index.html">
+      <fieldset class="search">
+         <label for="qsearch">Search:</label>
+         <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+         <button class="btn" title="Submit Search">Search</button>
+      </fieldset>
+   </form>
+
+<!--/header-->
+</header></div>
+	
+<!-- content-wrap -->
+<div id="content-wrap">
+
+    <!-- content -->
+    <div id="content" class="clearfix">
+
+   	    <!-- main -->
+        <div id="main">
+	

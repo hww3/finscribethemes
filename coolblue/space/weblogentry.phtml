@@ -1,0 +1,39 @@
+ <article class="post">
+ 	    <div class="primary">
+    	    <h2><%action_link controller="/space" args="$entry.path"%><%$subject%></a></h2>
+
+			<%if data->category_links && sizeof(data->category_links) %>
+            <p class="post-info"><span>Filed under</span> <% implode var="$category_links" final=" and " %></p>
+			<%endif%>
+		  <%render content="$content" object="$entry"%>
+
+<%if data->has_teaser %>
+                    <p><a class="more" href="index.html">Continue Reading &raquo;</a></p>
+<%endif%>
+        <!-- /primary -->
+        </div>
+    <aside>
+    	<p class="dateinfo"><%format_date var="$entry.created" format="short_month_name"%><span><%format_date var="$entry.created" format="month_day"%></span></p>
+        <div class="post-meta">
+       	    <h4>Post Info</h4>
+            <ul>
+          	    <li class="user"><a href="#"><%$entry.author.name%></a></li>
+                <li class="time"><a href="#"><%format_date var="$entry.created" format="time12"%></a></li>
+                <li class="comment"><a href="#"><% sizeof var="$entry.comments"%> Comment<%if sizeof(data->entry["comments"])!=1 %>s<%endif%></a></li>
+                <li class="permalink"><%action_link controller="/space" args="$entry.path"%>Permalink</a></li>
+            </ul>
+        </div>
+<!--
+       <div class="post-meta">
+            <h4>tags</h4>
+			<ul class="tags">
+	         	<li><a href="index.html" rel="tag">Clean</a></li>
+	            <li><a href="index.html" rel="tag">Blog</a></li>
+	            <li><a href="index.html" rel="tag">Minimal</a></li>
+	         </ul>
+       </div>
+-->
+    </aside>
+
+<!-- /post -->
+</article>
