@@ -582,6 +582,7 @@ header .search button.btn {
 /* --------------------------------------------------------------------------
     S I D E B A R
 ---------------------------------------------------------------------------- */
+
 #sidebar h3 {
     letter-spacing: 0.2px;
     margin-top: 10px;
@@ -597,20 +598,26 @@ header .search button.btn {
 }
 
 /* Sidemenu */
-.sidemenu ul {
+#sidebar .heading-1 {
+font-variant: inherit;  
+font-size: 20px;
+font-weight: bold;
+}
+
+.section ul {
 	margin: 5px 0 24px 0;
     padding: 0;
 	border-top:  1px  solid #E5E5E5;
     color: #959595
 }
-.sidemenu ul li {
+.section ul li {
 	list-style: none;
 	margin: 0;
 	padding: 7px 5px;
 	border-bottom:  1px  solid #E5E5E5;
 }
-.sidemenu ul li a:link,
-.sidemenu ul li a:visited {
+.section ul li a:link,
+.section ul li a:visited {
     color: #33799B;
     padding: 0;
 	font-weight: bold;
@@ -618,7 +625,7 @@ header .search button.btn {
     font-family:  'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', Verdana, Sans-Serif;
     font-size: 12px;
 }
-.sidemenu ul li a span {
+.section ul li a span {
     display: block;
 	color: #858585;
     font-family: Verdana, Sans-Serif;
@@ -628,9 +635,9 @@ header .search button.btn {
     line-height: 16px;
 	text-transform: none;
 }
-.sidemenu ul li a:hover { color: #CC3300; }
-.sidemenu ul ul { margin: 0 0 0 5px; padding: 0; }
-.sidemenu ul ul li { border: none; }
+.section ul li a:hover { color: #CC3300; }
+.section ul ul { margin: 0 0 0 5px; padding: 0; }
+.section ul ul li { border: none; }
 
 /* Popular */
 .popular ul li {

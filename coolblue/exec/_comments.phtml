@@ -1,0 +1,28 @@
+
+				<li class="depth-1">
+
+					<div class="comment-info">
+<%if data->comment["author"]["username"] == "anonymous"%>
+						<img alt="" src="<%gravatar email="$comment.md.email" url="true"%>" class="avatar" height="42" width="42" />
+<%else%>
+						<img alt="" src="<%gravatar email="$comment.author.email" url="true"%>" class="avatar" height="42" width="42" />
+<%endif%>
+						<cite>
+							<%if data->comment["author"]["username"] == "anonymous"%>
+							<a href="<%$comment.md.website%>"><%$comment.md.name%></a> (anonymous) Says: <br />
+							<%else%>
+							<%action_link controller="/space" args="$comment.author.username"%><%$comment.author.name%></a> Says: <br />
+							<%endif%>
+							<span class="comment-data"><%format_date var="$comment.created"%> at <%format_date var="$comment.created" format="time12"%></span>
+						</cite>
+					</div>
+
+					<div class="comment-text">
+						<p><%$comment.wiki_contents%></p>
+<!--
+						<div class="reply">
+							<a rel="nofollow" class="comment-reply-link" href="index.html">Reply</a>
+ 						</div>
+-->
+					</div>
+				</li>

@@ -5,10 +5,10 @@
 			<%if data->category_links && sizeof(data->category_links) %>
             <p class="post-info"><span>Filed under</span> <% implode var="$category_links" final=" and " %></p>
 			<%endif%>
-		  <%render content="$content" object="$entry"%>
+			<%$teaser%>
 
 <%if data->has_teaser %>
-                    <p><a class="more" href="index.html">Continue Reading &raquo;</a></p>
+                    <p><a class="more" href="<%action_url controller="/space" args="$entry.path"%>">Continue Reading &raquo;</a></p>
 <%endif%>
         <!-- /primary -->
         </div>
@@ -19,7 +19,7 @@
             <ul>
           	    <li class="user"><a href="#"><%$entry.author.name%></a></li>
                 <li class="time"><a href="#"><%format_date var="$entry.created" format="time12"%></a></li>
-                <li class="comment"><a href="#"><% sizeof var="$entry.comments"%> Comment<%if sizeof(data->entry["comments"])!=1 %>s<%endif%></a></li>
+                <li class="comment"><%action_link controller="/space" args="$entry.path" #="comments"%><% sizeof var="$entry.comments"%> Comment<%if sizeof(data->entry["comments"])!=1 %>s<%endif%></a></li>
                 <li class="permalink"><%action_link controller="/space" args="$entry.path"%>Permalink</a></li>
             </ul>
         </div>

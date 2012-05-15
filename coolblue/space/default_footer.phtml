@@ -3,11 +3,11 @@
     <aside>
     	<p class="dateinfo">JAN<span>31</span></p>
         <div class="post-meta">
-       	    <h4>Post Info</h4>
+       	    <h4>Article Info</h4>
             <ul>
           	    <li class="user"><a href="#"><%$object.author.name%></a></li>
                 <li class="time"><a href="#"><%format_date var="$object.created" format="time12"%></a></li>
-                <li class="comment"><a href="#"><% sizeof var="$object.comments"%> Comment<%if sizeof(data->object["comments"])!=1 %>s<%endif%></a></li>
+                <li class="comment"><a href="#comments" id="trigger_comments-<%$obj%>"><%if sizeof(data->object["comments"]) == 0 %>No<%else%><% sizeof var="$object.comments"%><%endif%> Comment<%if sizeof(data->object["comments"])!=1 %>s<%endif%></a></li>
                 <li class="permalink"><%action_link controller="/space" args="$object.path"%>Permalink</a></li>
             </ul>
         </div>
@@ -27,4 +27,22 @@
 
 <!-- /post -->
 </article>
+
+<!-- post-bottom-section -->
+ <div class="post-bottom-section">
+	<a id="comments">
+   <h4><%if sizeof(data->object["comments"]) == 0 %>No<%else%><% sizeof var="$object.comments"%><%endif%> Comment<%if sizeof(data->object["comments"])!=1 %>s<%endif%></h4>
+</a>
+	<div class="primary">
+		<ol class="commentlist">
+		  <div dojoType="fins.widget.Comments" targetName="comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>">
+			</div>
+		</ol>
+	</div>
+<p>
+	
+</div>
+<div class="post-bottom-section">
+	<a id="PostComment" class="more" href="/exec/comments/<%$obj%>"><%LOCALE id="11" string="Post a Comment"%></a>
+</div>
 <%endif%>
