@@ -19,10 +19,10 @@
 		</ul>
 	</nav>
     <div class="subscribe">
-        <span>Subscribe:</span> <a href="#">RSS</a> 	
-<% if data["is_admin"]==1 %>| <%action_link controller="/admin" _id="Admin"%>Admin</a><% endif %>
+        <span>Subscribe:</span> <%action_link controller="/rss" args="start"%>RSS</a> 	
 <% if data["user_object"] %>| <%action_link controller="/exec" action="logout"%>Logout</a>
-	| <%action_link controller="/exec" action="actions" args="$obj" _id="Actions"%>Actions</a>
+<% if data["is_admin"]==1 %>| <%action_link controller="/admin" _id="Admin"%>Admin</a><% endif %>
+<% if data["object"] %> | <%action_link controller="/exec" action="actions" args="$obj" _id="Actions"%>Actions</a><%endif%>
 <% if data["request"] && data["request"]["misc"]["object_is_weblog"] %>| <%action_link controller="/exec" action="post" args="$obj" _id="PostBlog"%>Post Blog</a><%endif%><%else%>| <%action_link controller="/exec" action="login" _id="Login"%>Login</a><%endif%>
     </div>
 

@@ -26,19 +26,20 @@
 <!-- extra -->
 <div id="extra-wrap"><div id="extra" class="clearfix">
 
+<%syspref var="site.photo_feed_url" val="NONE" store="photos_url" %>
+<%if data->photos_url != "NONE" %>
 	    <div id="gallery" class="clearfix">
-
-		    <h3>Flickr Photos </h3>
+<%image_feed max="10" url="$photos_url" store="photofeed"%>
+		    <h3><%$photofeed.title%></h3>
 
 		    <p class="thumbs">
-<%rss_feed url="http://hww3.smugmug.com/hack/feed.mg?Type=nicknameRecentPhotos&Data=hww3&format=rss200" store="smugmug"%>
-<%foreach var="$smugmug.items" val="photo"%>
-<a href="index.html"><img src="<% theme show="path"%>images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+<%foreach var="$photofeed.photos" val="photo"%>
+<a href="<%$photo.url%>"><img src="<%$photo.thumbnail%>" width="42" height="43" alt="<%$photo.title%>" /></a>
 <%end%>
             </p>
 
         </div>
-
+<%endif%>
 	    <div class="col first">
 
 		    <h3>Contact Info</h3>
