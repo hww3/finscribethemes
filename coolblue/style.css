@@ -201,7 +201,7 @@ strong, b {
 }
 
 /* Images */
-img {
+img[class|=dijit] {
     background: #F3F4F5;
     border: 1px solid #DEDFE0;
 	padding: 15px;

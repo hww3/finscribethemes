@@ -137,13 +137,13 @@
 
             <h3>Recent Comments</h3>
 
+			<%recent_comments max="5" store="recent_comments"%>
+
 	        <div class="recent-comments">
                 <ul>
-			        <li><a href="index.html" title="Comment on title">Whoa! This one is really cool...</a><br /> &#45; <cite>Erwin</cite></li>
-			        <li><a href="index.html" title="Comment on title">Wow. This theme is really awesome...</a><br /> &#45; <cite>John Doe</cite></li>
-			        <li><a href="index.html" title="Comment on title">Type your comment here...</a><br />&#45; <cite>Naruto</cite></li>
-			        <li><a href="index.html" title="Comment on title">And don't forget this theme is free...</a><br /> &#45; <cite>Shikamaru</cite></li>
-                    <li><a href="index.html" title="Comment on title">Just a simple reply test. Thanks...</a><br /> &#45; <cite>ABCD</cite></li>
+					<%foreach var="$recent_comments" val="comment"%>
+			        <li><%action_link controller="/space" args="$comment.object.path"%><%$comment.short_wiki_contents%></a><br /> &#45; <cite><%$comment.author_name%></cite></li>
+					<%end%>
 			    </ul>
 		    </div>
 
@@ -167,12 +167,6 @@
 
 	        <div class="footer-list">
 			    <ul>
-				    <li><a href="index.html">5 Must Have Sans Serif Fonts for Web Designers</a></li>
-				    <li><a href="index.html">The Basics of CSS3</a></li>
-				    <li><a href="index.html">10 Simple Tips for Launching a Website</a></li>
-				    <li><a href="index.html">24 ways: Working With RGBA Colour</a></li>
-				    <li><a href="index.html">30 Blog Designs with Killer Typography</a></li>
-				    <li><a href="index.html">The Principles of Great Design</a></li>
 			    </ul>
 		    </div>
 
