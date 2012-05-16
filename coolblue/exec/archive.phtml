@@ -1,0 +1,42 @@
+<%@ include file="top.phtml"%>
+<%@include file="header.phtml"%>
+<title><%LOCALE id="0" string="Archives for"%> <%$weblog.title%>, <%format_date var="$date" format="nice"%></title>
+<%@include file="pagebegin.phtml"%>
+
+   <h3><%LOCALE id="0" string="Archives for"%> <%$weblog.title%>, <%format_date var="$date" format="nice"%></h3>
+
+
+<p>
+<div class="flash-message"><font color="red"><%flash %></font></div>
+<p>
+<!--
+<div class="navigation clearfix">
+<div><a href="#" >&laquo; Older Entries</a></div>
+<div><a href="#" >Newer Entries &raquo; </a></div>
+</div>
+-->
+<ul class="archive">
+
+<%foreach var="$archives" val="entry"%>
+<li>
+<div class="post-title">
+  <%action_link controller="/space" args="$entry.path"%><%$entry.title%></a>
+</div>
+<div class="post-details">Posted on <%action_link controller="/space" args="$entry.path"%><%$entry.nice_created%></a> 
+<%if sizeof(data->entry["category_links"]) %>
+    <span>|</span> Filed under <% implode var="$entry.category_links" final=" and " %>
+<%endif%>
+</div>
+</li>
+<%end%>
+<!--
+<div class="navigation clearfix">
+<div><a href="#" >&laquo; Older Entries</a></div>
+<div><a href="#" >Newer Entries &raquo; </a></div>
+</div>
+-->
+
+
+<%@ include file="pageend.phtml"%>
+<%@ include file="footer.phtml"%>
+<%@ include file="bottom.phtml"%>

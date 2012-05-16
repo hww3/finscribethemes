@@ -41,66 +41,24 @@
 
         </div>
 <%endif%>
+
+<%syspref var="site.column_1_enable" type="boolean" val="1" store="column_1_enable" %>
+<%syspref var="site.column_1_snip" val="themes/default/contact_info" store="column_1_snip" %>
 	    <div class="col first">
-
-<%syspref var="site.contact_info_enable" type="boolean" val="1" store="contact_info_enable" %>
-<%syspref var="site.contact_info_snip" val="themes/default/contact_info" store="contact_snip" %>
-<%if data->contact_info_enable %>
-<%snip snip="$contact_snip"%>
+<%if data->column_1_enable %>
+<%snip snip="$column_1_snip"%>
 	    </div>
+<%endif%>
 
+<%syspref var="site.column_2_enable" type="boolean" val="1" store="column_2_enable" %>
+<%syspref var="site.column_2_snip" val="themes/default/site_links" store="column_2_snip" %>
 	    <div class="col">
-
-   	        <h3>Site Links</h3>
-
-		    <div class="footer-list">
-			    <ul>
-				    <li><a href="index.html">Home</a></li>
-				    <li><a href="index.html">Style Demo</a></li>
-				    <li><a href="index.html">Blog</a></li>
-				    <li><a href="index.html">Archive</a></li>
-				    <li><a href="index.html">About</a></li>
-				    <li><a href="index.html">Template Info</a></li>
-				    <li><a href="index.html">Site Map</a></li>
-			    </ul>
-		    </div>
-
-            <h3>Friends</h3>
-
-		    <div class="footer-list">
-			    <ul>
-				    <li><a href="index.html">consequat molestie</a></li>
-				    <li><a href="index.html">sem justo</a></li>
-				    <li><a href="index.html">semper</a></li>
-				    <li><a href="index.html">magna sed purus</a></li>
-				    <li><a href="index.html">tincidunt</a></li>
-				    <li><a href="index.html">consequat molestie</a></li>
-				    <li><a href="index.html">magna sed purus</a></li>
-			    </ul>
-		    </div>
-
+<%if data->column_2_enable %>
+<%snip snip="$column_2_snip"%>
 	    </div>
+<%endif%>
 
         <div class="col">
-
-            <h3>Credits</h3>
-
-            <div class="footer-list">
-			    <ul>
-				    <li><a href="http://jasonlarose.com/blog/110-free-classy-social-media-icons">
-						110 Free Classy Social Media Icons by Jason LaRose
-				    </a>
-				    </li>
-                    <li><a href="http://wefunction.com/2009/05/free-social-icons-app-icons/">
-						Free Social Media Icons by WeFunction
-				    </a>
-				    </li>
-                    <li><a href="http://iconsweets2.com/">
-						Free Icons by Yummygum
-				    </a>
-				    </li>
-			    </ul>
-		    </div>
 
             <h3>Recent Comments</h3>
 
@@ -119,14 +77,12 @@
         <div class="col">
 
             <h3>Archives</h3>
+<%archive_list weblog="start" max="6" store="archives"%>
 
 	        <div class="footer-list">
 			    <ul>
-				    <li><a href="index.html">January 2010</a></li>
-				    <li><a href="index.html">December 2009</a></li>
-				    <li><a href="index.html">November 2009</a></li>
-				    <li><a href="index.html">October 2009</a></li>
-				    <li><a href="index.html">September 2009</a></li>
+<%foreach var="$archives" val="archive"%><li><a href="<%$archive.url%>"><%$archive.month%></a></li>
+<%end%>
 			    </ul>
 		    </div>
 
