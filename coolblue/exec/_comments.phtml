@@ -24,5 +24,10 @@
 							<a rel="nofollow" class="comment-reply-link" href="index.html">Reply</a>
  						</div>
 -->
+
+<% if data->is_admin||(data->user_object && data->user_object["username"] && data->user_object["username"]==data->comment["author"]["username"]) %>
+<%action_link controller="/exec" action="deletecomment" id="$comment.id"%><%LOCALE id="146" string="Delete"%></a>
+<% endif %>
+
 					</div>
 				</li>
