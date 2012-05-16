@@ -1,12 +1,12 @@
 <% if data["request"]["misc"]["object_is_weblog"] %><% else %>
 </div>
     <aside>
-    	<p class="dateinfo">JAN<span>31</span></p>
+    	<p class="dateinfo"><%format_date var="$object.current_version.created" format="short_month_name"%><span><%format_date var="$object.current_version.created" format="month_day"%></span></p>
         <div class="post-meta">
        	    <h4>Article Info</h4>
             <ul>
           	    <li class="user"><a href="#"><%$object.author.name%></a></li>
-                <li class="time"><a href="#"><%format_date var="$object.created" format="time12"%></a></li>
+                <li class="time"><a href="#"><%format_date var="$object.current_version.created" format="time12"%></a></li>
                 <li class="comment"><a href="#comments" id="trigger_comments-<%$obj%>"><%if sizeof(data->object["comments"]) == 0 %>No<%else%><% sizeof var="$object.comments"%><%endif%> Comment<%if sizeof(data->object["comments"])!=1 %>s<%endif%></a></li>
                 <li class="permalink"><%action_link controller="/space" args="$object.path"%>Permalink</a></li>
             </ul>

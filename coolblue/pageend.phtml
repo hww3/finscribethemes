@@ -26,8 +26,9 @@
 <!-- extra -->
 <div id="extra-wrap"><div id="extra" class="clearfix">
 
+<%syspref var="site.photo_feed_enable" type="boolean" val="0" store="photo_feed_enable" %>
 <%syspref var="site.photo_feed_url" val="NONE" store="photos_url" %>
-<%if data->photos_url != "NONE" %>
+<%if data->photo_feed_enable  != 0%>
 	    <div id="gallery" class="clearfix">
 <%image_feed max="10" url="$photos_url" store="photofeed"%>
 		    <h3><%$photofeed.title%></h3>
@@ -158,15 +159,23 @@
 			    </ul>
 		    </div>
 
+<%syspref var="site.bookmarks_feed_enable" type="boolean" val="0" store="bookmarks_feed_enable" %>
+<%syspref var="site.bookmarks_feed_url" val="NONE" store="bookmarks_feed_url" %>
+<%if data->bookmarks_feed_enable !=0 %>
+<%rss_feed url="$bookmarks_feed_url" store="bookmarks"%>
+	    <div id="gallery" class="clearfix">
             <h3>Recent Bookmarks</h3>
 
 	        <div class="footer-list">
 			    <ul>
+<%foreach var="$bookmarks.items" val="bookmark"%>
+				<li><a href="<%$bookmark.data.link%>"><%$bookmark.data.title%></a></li>
+<%end%>
 			    </ul>
 		    </div>
 
 	    </div>
-
+<%endif%>
 <!-- /extra -->
 </div></div>
 
