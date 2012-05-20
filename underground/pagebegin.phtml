@@ -29,9 +29,9 @@
 			
 			<div id="logo"><%$siteparts.0%><span class="red"><%$siteparts.1%></span></div>		
 			
-			<form method="post" class="search" action="#">
+			<form method="post" class="search" action="<%action_url controller="/_internal" action="search"%>">
 				<p><input name="search_query" class="textbox" type="text" />
-  				<input name="search" class="searchbutton" value="Search" type="submit" /></p>
+  				<input name="search" class="searchbutton" value="Search" type="submit" onclick="if (!this.clicked) { this.value = ''; this.clicked=true; }"/></p>
 			</form>
 						
 		</div>
