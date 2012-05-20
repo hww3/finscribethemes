@@ -1,0 +1,49 @@
+<!--
+<%syspref var="site.sections" val="About,Archives,Downloads" store="sections" %>
+<%split_string var="$sections" on="," val="sectionparts"%>
+-->
+</head>
+<body class="tundra">
+<!-- wrap starts here -->
+<div id="wrap">
+
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><%action_link controller="/space"%><%syspref var="site.name"%></a></h1>		
+		<p id="slogan"><%syspref var="site.tagline"%></p>		
+			
+		<form id="quick-search" action="<%action_url controller="/_internal" action="search"%>" method="get" >
+			<p>
+			<label for="qsearch">Search:</label>
+			<input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." onclick="if (!this.clicked) { this.value = ''; this.clicked=true; }" title="Start typing and hit ENTER" />
+			<input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="<% theme show="path"%>images/search.gif" />
+</p>
+ &nbsp;
+<p>
+				<% if data["user_object"] %> <%action_link controller="/exec" action="logout"%>Logout</a>
+				<% if data["is_admin"]==1 %>| <%action_link controller="/admin" _id="Admin"%>Admin</a><% endif %>
+				<% if data["object"] %> | <%action_link controller="/exec" action="actions" args="$obj" _id="Actions"%>Actions</a><%endif%>
+				<% if data["request"] && data["request"]["misc"]["object_is_weblog"] %>| <%action_link controller="/exec" action="post" args="$obj" _id="PostBlog"%>Post Blog</a><%endif%> <%else%> <%action_link controller="/exec" action="login" _id="Login"%>Login</a><%endif%>
+
+			</p>
+		</form>	
+			
+	<!--header ends-->					
+	</div>
+		
+	<!-- navigation starts-->	
+	<div  id="nav">
+		<ul>
+			<li <%if data->section == "start" %> id="current"<%endif%>><%action_link controller="/space"%>Home</a></li>
+			<%foreach var="$sectionparts" val="sec"%>
+			<li<%if data->section == data->sec %> id="current"<%endif%>><%action_link controller="/space" args="$sec"%><%$sec%></a></li><%end>%>
+	
+		</ul>
+	<!-- navigation ends-->	
+	</div>					
+			
+	<!-- content-wrap starts -->
+	<div id="content-wrap">
+	
+		<div id="main">

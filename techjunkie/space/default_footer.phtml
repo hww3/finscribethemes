@@ -1,0 +1,22 @@
+<% if data["request"]["misc"]["object_is_weblog"] %><% else %>	
+<p class="post-footer">		
+<a href="#comments" id="trigger_comments-<%$obj%>">Comments (<%$numcomments%>)</a> |				
+<span class="date"><%format_date var="$object.current_version.created"%></span>	
+</p>
+
+<!-- post-bottom-section -->
+ <div class="post-bottom-section">
+	<a id="comments"> </a>
+	<div class="primary">
+		<ol class="commentlist">
+		  <div dojoType="fins.widget.Comments" targetName="comments" refreshUrl="/exec/getcomments/<%$obj%>" id="<%$obj%>_comments" connectorId="trigger_comments-<%$obj%>">
+			</div>
+		</ol>
+	</div>
+<p>
+	
+</div>
+<div class="post-bottom-section">
+	<a id="PostComment" class="more" href="/exec/comments/<%$obj%>"><%LOCALE id="11" string="Post a Comment"%></a>
+</div>
+<%endif%>

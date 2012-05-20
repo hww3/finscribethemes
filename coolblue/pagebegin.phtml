@@ -26,10 +26,10 @@
 <% if data["request"] && data["request"]["misc"]["object_is_weblog"] %>| <%action_link controller="/exec" action="post" args="$obj" _id="PostBlog"%>Post Blog</a><%endif%><%else%>| <%action_link controller="/exec" action="login" _id="Login"%>Login</a><%endif%>
     </div>
 
-   <form id="quick-search" method="get" action="<%action_url controller="/space" args="search"%>">
+   <form id="quick-search" method="get" action="<%action_url controller="/_internal" action="search"%>">
       <fieldset class="search">
          <label for="qsearch">Search:</label>
-         <input class="tbox" id="qsearch" type="text" name="q" value="Search..." title="Start typing and hit ENTER" />
+         <input class="tbox" id="qsearch" type="text" name="q" value="Search..." onclick="if (!this.clicked) { this.value = ''; this.clicked=true; }" title="Start typing and hit ENTER" />
          <button class="btn" title="Submit Search">Search</button>
       </fieldset>
    </form>

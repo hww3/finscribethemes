@@ -1,0 +1,17 @@
+<!-- post -->
+	<h2><%action_link controller="/space" args="$entry.path"%><%$entry.title%></a></h2><%if sizeof(data->entry["category_links"]) %>
+<p class="post-info">Posted by <a href="index.html"><%$entry.owner.username%></a> | Filed under  <% implode var="$entry.category_links" final=" and " %>  </p>
+<%else%>
+	<%endif%>
+<%$teaser%><%if data->has_teaser %><p><a class="more" href="<%action_url controller="/space" args="$entry.path"%>">Continue Reading &raquo;</a></p><%endif%><p class="post-footer">		
+<a href="#comments-<%$entry.path%>" id="trigger_comments-<%$entry.path%>">Comments (<%sizeof var="$entry.comments"%>)</a> |				
+<span class="date"><%format_date var="$entry.current_version.created"%></span>	
+</p>
+<!-- post-bottom-section -->
+ 	<a id="comments-<%$entry.path%>"> </a>
+	<div class="primary">
+		<ol class="commentlist">
+		  <div dojoType="fins.widget.Comments" targetName="comments" refreshUrl="/exec/getcomments/<%$entry.path%>" id="<%$entry.path%>_comments" connectorId="trigger_comments-<%$entry.path%>">
+			</div>
+		</ol>
+	</div>

@@ -1,0 +1,11 @@
+<% if data["request"]["misc"]["object_is_weblog"] %><% else %>
+    <!-- post -->
+	<h2><%action_link controller="/space" args="$object.path"%><%$title%></a></h2>
+		<%@ include file="space/trackback.phtml" %>		
+		<p class="post-info">Posted by <%action_link controller="/space" args="$object.author.name"%><%$object.author.name%></a> <%if sizeof(data->category_links) %>
+		| Filed under  <% implode var="$category_links" final=" and " %> 
+ 
+		<%endif%>
+		 </p>
+		 
+<%endif%>

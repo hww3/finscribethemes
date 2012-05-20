@@ -1,0 +1,66 @@
+		<!-- main ends -->	
+		</div>
+				
+		<div id="sidebar">
+<%snip snip="themes/default/portlet-1"%>
+		<!-- sidebar ends -->		
+		</div>		
+		
+	<!-- content-wrap ends-->	
+	</div>
+		
+	<!-- footer starts -->		
+	<div id="footer-wrap"><div id="footer-content">
+	
+		<div id="footer-columns">	
+			
+			<%syspref var="site.column_1_enable" type="boolean" val="1" store="column_1_enable" %>
+			<%syspref var="site.column_1_snip" val="themes/default/contact_info" store="column_1_snip" %>
+				    <div class="col3">
+			<%if data->column_1_enable %>
+			<%snip snip="$column_1_snip"%>
+				    </div>
+			<%endif%>
+			
+			<%syspref var="site.column_2_enable" type="boolean" val="1" store="column_2_enable" %>
+			<%syspref var="site.column_2_snip" val="themes/default/site_links" store="column_2_snip" %>
+				    <div class="col3-center">
+			<%if data->column_2_enable %>
+			<%snip snip="$column_2_snip"%>
+				    </div>
+			<%endif%>
+
+
+			<div class="col3">
+	            <h3>Archives</h3>
+				<%archive_list weblog="start" max="6" store="archives"%>
+				<ul>
+					<%foreach var="$archives" val="archive"%><li><a href="<%$archive.url%>"><%$archive.month%></a></li>
+				<%end%>
+				</ul>
+			</div>
+		<!-- footer-columns ends -->
+		</div>	
+	
+		<div id="footer-bottom">
+			<p>
+			<%syspref var="site.copyright"%> &nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a> |
+			Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | 
+			<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+			
+   		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<%action_link controller="/space"%>Home</a>&nbsp;|&nbsp;
+   		    <%action_link controller="/space" args="object-index"%>Sitemap</a>&nbsp;|&nbsp;
+	   	    <%action_link controller="/rss" args="start"%>RSS Feed</a>
+   		    </p>
+		</div>	
+
+<!-- footer ends-->
+</div></div>
+
+<!-- wrap ends here -->
+</div>
+
+</body>
