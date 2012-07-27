@@ -2,12 +2,12 @@
 <img src="/static/images/Icon-Comment.png" width="15" height="11"
 border="0"></a>
 
-<%gravatar var="comment.author.email" %>         
+<%gravatar email="$comment.author.email" %>         
          
 Posted by
 <% if data->comment["author"]["username"] == "anonymous" %><%$comment.md.name%> (anonymous)
 <% else %>
-<% gravatar var="comment.author.email"%><%$comment.author.username%>
+<%$comment.author.username%>
 <% endif %>, <%$comment.nice_created%>.
 <a href="/comments/<%$obj%>#<%$comment.id%>"><img
 src="/static/images/Icon-Permalink.png" width="8" height="9"
